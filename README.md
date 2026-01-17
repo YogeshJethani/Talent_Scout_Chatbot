@@ -24,7 +24,7 @@ TalentScout Hiring Assistant is an interactive chatbot designed to streamline th
 - Progress tracking sidebar
 - Conversation history display
 
-# Data Management
+## Data Management
 - Secure data storage
 - JSON-based candidate records
 - Timestamp-based file naming
