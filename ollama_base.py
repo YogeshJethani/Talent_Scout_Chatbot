@@ -3,8 +3,8 @@ import json
 from datetime import datetime
 
 OLLAMA_HOST = "http://localhost:11434"
-OLLAMA_MODEL = "llama3"
-OLLAMA_TIMEOUT = 60
+OLLAMA_MODEL = "llama3:latest"
+OLLAMA_TIMEOUT = 120
 
 def test_ollama_connection():
     try:

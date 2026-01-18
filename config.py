@@ -4,8 +4,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
-OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3")
-OLLAMA_TIMEOUT = 60
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3:latest")
+OLLAMA_TIMEOUT = 120
 
 SYSTEM_PROMPT = """You are a professional hiring assistant for TalentScout, a recruitment agency specializing in technology placements.
 **YOUR ROLE:**
