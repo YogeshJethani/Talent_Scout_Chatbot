@@ -135,7 +135,7 @@ TECH_QUESTIONS = {
 }
 
 EMAIL_PATTERN = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
-PHONE_PATTERN = r'^\+?1?\d{9,15}$'
+PHONE_PATTERN = r'^\+?\d{1,3}?\d{9,15}$'
 
 DATA_DIR = "data"
 LOGS_DIR = "logs"
