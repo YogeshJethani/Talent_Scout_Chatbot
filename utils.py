@@ -131,6 +131,7 @@ def extract_candidate_name(conversation_history):
             if len(content.split()) <= 5:
                 return content
     return None
+
 def format_conversation_for_display(messages):
     formatted = []
     for msg in messages:
