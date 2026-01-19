@@ -1,6 +1,7 @@
 import streamlit as st
 import re
-from ollama_base import send_message, save_conversation
+#from ollama_base import send_message, save_conversation (LOCAL API)
+from hf_client import send_message, save_conversation
 from config import (
     SYSTEM_PROMPT,
     EXIT_KEYWORDS,
@@ -47,7 +48,7 @@ def get_ai_response(user_message, conversation_history):
         )
         return response
     except Exception as e:
-        return f"Error connecting to AI: {str(e)}\n\nPlease make sure Ollama is running: `ollama serve`"
+        return f"Error connecting to AI: {str(e)}\n\nPlease check your HUGGINGFACE_API_KEY in .env file"
 
 
 ### INPUT Validation
