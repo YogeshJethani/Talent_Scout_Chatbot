@@ -25,11 +25,11 @@ def test_ollama_connection():
             return False
 
     except requests.exceptions.ConnectionError:
-        print("❌ Cannot connect to Ollama. Is it running?")
-        print("   Run: ollama serve")
+        print("Cannot connect to Ollama. Is it running?")
+        print("Run: ollama serve")
         return False
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f"Error: {e}")
         return False
 
 def send_message(user_message, conversation_history=None, system_prompt=None):

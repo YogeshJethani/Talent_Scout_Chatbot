@@ -1,6 +1,6 @@
 import streamlit as st
 import re
-#from ollama_base import send_message, save_conversation (LOCAL API)
+#from ollama_base import send_message, save_conversation (Local API)
 from hf_client import send_message, save_conversation
 from config import (
     SYSTEM_PROMPT,

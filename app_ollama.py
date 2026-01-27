@@ -1,5 +1,6 @@
 import streamlit as st
-from ollama_base import test_ollama_connection
+# from ollama_base import test_ollama_connection (Local API)
+from hf_client import test_huggingface_connection
 from utils import(
 initialize_session_state,
     get_initial_greeting,
@@ -57,14 +58,14 @@ st.markdown("""
 def main():
     ### HEADER
     st.markdown('<h1 class="main-header">💼 TalentScout Hiring Assistant</h1>', unsafe_allow_html=True)
-    st.markdown('<p class="sub-header">AI-Powered Recruitment Screening | Powered by Llama 3</p>', unsafe_allow_html=True)
+    st.markdown('<p class="sub-header">AI-Powered Recruitment Screening | Powered by Llama 3 (HuggingFace API)</p>', unsafe_allow_html=True)
 
-    if 'ollama_tested' not in st.session_state:
-        with st.spinner("🔄 Connecting to AI..."):
-            if test_ollama_connection():
-                st.session_state.ollama_tested = True
+    if 'hf_tested' not in st.session_state:
+        with st.spinner("🔄 Connecting to Ollama..."):
+            if test_huggingface_connection():
+                st.session_state.hf_tested = True
             else:
-                st.error("❌ Cannot connect to Ollama. Please make sure it's running: `ollama serve`")
+                st.error("❌ Cannot connect to HuggingFace. Please make sure API_KEY is correct.")
                 st.stop()
 
     initialize_session_state()
@@ -95,10 +96,10 @@ def main():
         st.divider()
 
         st.header("🔒 Privacy & Security")
-        st.write("✅ Local LLM (Llama 3)")
+        st.write("✅ Cloud LLM (Llama 3.1)")
         st.write("✅ Data stored locally")
         st.write("✅ GDPR compliant")
-        st.write("✅ No external API calls")
+        st.write("✅ HuggingFace API")
 
         st.divider()
 
@@ -118,9 +119,8 @@ def main():
 
         # System status
         st.header("🖥️ System Status")
-        st.write("**LLM:** Llama 3 (Local)")
-        st.write("**Status:** 🟢 Running")
-        st.write(f"**Total Messages:** {len(st.session_state.messages)}")
+        st.write("**LLM:** Llama 3 (Cloud)")
+        st.write("**Status:** 🟢 Connected")
 
     ### MAIN CHAT
     st.divider()
@@ -189,12 +189,13 @@ def main():
 
                     except Exception as e:
                         error_message = f"""I apologize, but I'm experiencing technical difficulties.
+
                         **Error Details:** {str(e)}
-                        
+
                         **Troubleshooting:**
-                        1. Make sure Ollama is running: `ollama serve`
-                        2. Verify Llama 3 is installed: `ollama list`
-                        3. Check connection at: http://localhost:11434
+                        1. Check your HUGGINGFACE_API_KEY in .env file
+                        2. Verify you have internet connection
+                        3. Try again in a few moments
 
                         Please try again or contact support@talentscout.com"""
 
@@ -224,11 +225,11 @@ def main():
     st.divider()
 
     st.markdown("""
-            <div style='text-align: center; color: #999; font-size: 0.9rem; padding: 1rem;'>
-                <strong>TalentScout AI</strong> | Powered by Llama 3 (Local LLM) | 
-                <a href='mailto:support@talentscout.com' style='color: #1f77b4;'>Contact Support</a> | 
-                <a href='https://github.com/YogeshJethani/Talent_Scout_Chatbot' style='color: #1f77b4;'>GitHub</a>
-            </div>
+        <div style='text-align: center; color: #999; font-size: 0.9rem; padding: 1rem;'>
+            <strong>TalentScout AI</strong> | Powered by Llama 3 (HuggingFace) | 
+            <a href='mailto:support@talentscout.com' style='color: #1f77b4;'>Contact Support</a> | 
+            <a href='https://github.com/YogeshJethani/Talent_Scout_Chatbot' style='color: #1f77b4;'>GitHub</a>
+        </div>
         """, unsafe_allow_html=True)
 
 if __name__ == "__main__":

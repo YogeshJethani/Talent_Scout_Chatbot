@@ -5,8 +5,7 @@ load_dotenv()
 
 #LLAMA HuggingFace Configuration
 OLLAMA_HOST = os.getenv("HUGGINGFACE_API_KEY")
-OLLAMA_MODEL = os.getenv("HUGGINGFACE_MODEL", "meta-llama/Meta-Llama-3-8B-Instruct")
-OLLAMA_TIMEOUT = 45
+OLLAMA_MODEL = os.getenv("HUGGINGFACE_MODEL", "meta-llama/Llama-3.1-8B-Instruct")
 
 # LLAMA Ollama API Configuration
 # OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
