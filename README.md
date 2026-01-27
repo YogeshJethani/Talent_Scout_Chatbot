@@ -1,6 +1,7 @@
 # 💼 TalentScout Hiring Assistant
 
 An intelligent AI-powered chatbot for initial candidate screening and technical assessment in technology recruitment.
+Deployed Link:- https://talentscouthfbot.streamlit.app/
 
 ## 📋 Table of Contents
 - [Overview](#overview)
